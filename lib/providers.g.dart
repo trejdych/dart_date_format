@@ -45,23 +45,6 @@ abstract class _$SelectedDate extends Notifier<DateTime> {
   DateTime build();
 }
 
-String _$SelectedLocaleHash() => r'ffdcc0d4a35658f3dc694ed75be75bae0af8f303';
-
-/// See also [SelectedLocale].
-final selectedLocaleProvider = NotifierProvider<SelectedLocale, String>(
-  SelectedLocale.new,
-  name: r'selectedLocaleProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$SelectedLocaleHash,
-);
-typedef SelectedLocaleRef = NotifierProviderRef<String>;
-
-abstract class _$SelectedLocale extends Notifier<String> {
-  @override
-  String build();
-}
-
 String _$FormattedDateHash() => r'5b3cfb7add586e55c5a6fd182545341a84448610';
 
 /// See also [FormattedDate].

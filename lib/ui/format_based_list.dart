@@ -12,6 +12,7 @@ class FormatBasedList extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = useTextEditingController(text: 'yyyy-MM-dd HH:mm:ss');
     useValueListenable(controller);
+    final locales = ref.watch(localesProvider());
     return Column(
       children: [
         Padding(
