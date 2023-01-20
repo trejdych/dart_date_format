@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../locales.dart';
-import '../providers.dart';
+import '../providers/date_formats.dart';
+import '../providers/locales.dart';
 
 class FormatBasedList extends HookConsumerWidget {
   const FormatBasedList({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'providers.dart';
+import 'providers/date_formats.dart';
 import 'ui/format_based_list.dart';
 import 'ui/locale_based_list.dart';
 

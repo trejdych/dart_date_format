@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../locales.dart';
 import '../models/date_format_info.dart';
-import '../providers.dart';
+import '../providers/date_formats.dart';
+import '../providers/locales.dart';
 import 'locale_picker.dart';
 
 class DefaultConstructorsList extends ConsumerWidget {
@@ -81,38 +81,27 @@ class SelectLocaleButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) => TextButton(
-      onPressed: () => LocalePicker.show(context),
-      child: Stack(
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                ref.watch(selectedLocaleProvider),
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              const Icon(Icons.arrow_drop_down),
-            ],
-          ),
-          const Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: Divider(
-                height: 1,
-              )),
-        ],
-      ));
-  // @override
-  // Widget build(BuildContext context, WidgetRef ref) => DropdownButton<String>(
-  //       items: locales
-  //           .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-  //           .toList(),
-  //       value: ref.watch(selectedLocaleProvider),
-  //       onChanged: (locale) {
-  //         if (locale != null) {
-  //           ref.read(selectedLocaleProvider.notifier).setLocale(locale);
-  //         }
-  //       },
-  //     );
+        onPressed: () => LocalePicker.show(context),
+        child: Stack(
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  ref.watch(selectedLocaleProvider),
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+                const Icon(Icons.arrow_drop_down),
+              ],
+            ),
+            const Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: Divider(
+                  height: 1,
+                )),
+          ],
+        ),
+      );
 }
