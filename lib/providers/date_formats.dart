@@ -3,10 +3,9 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'locales.dart';
-import 'models/date_format_info.dart';
+import '../models/date_format_info.dart';
 
-part 'providers.g.dart';
+part 'date_formats.g.dart';
 
 @Riverpod(keepAlive: true)
 class SelectedDate extends _$SelectedDate {
@@ -31,19 +30,6 @@ class SelectedDate extends _$SelectedDate {
       time.hour,
       time.minute,
     );
-  }
-}
-
-@Riverpod(keepAlive: true)
-class SelectedLocale extends _$SelectedLocale {
-  @override
-  String build() {
-    return defaultLocale;
-  }
-
-  Future<void> setLocale(String locale) async {
-    await initializeDateFormatting(locale);
-    state = locale;
   }
 }
 

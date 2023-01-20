@@ -1,6 +1,38 @@
-const defaultLocale = 'en_US';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-const locales = [
+part 'locales.g.dart';
+
+@Riverpod(keepAlive: true)
+class SelectedLocale extends _$SelectedLocale {
+  @override
+  String build() {
+    return _defaultLocale;
+  }
+
+  Future<void> setLocale(String locale) async {
+    await initializeDateFormatting(locale);
+    state = locale;
+  }
+}
+
+@riverpod
+List<String> locales(LocalesRef ref, {String? filter}) {
+  if (filter == null) {
+    return _locales;
+  }
+  return _locales
+      .where(
+        (element) => element.toLowerCase().contains(
+              filter.toLowerCase(),
+            ),
+      )
+      .toList();
+}
+
+const _defaultLocale = 'en_US';
+
+const _locales = [
   'af',
   'af_NA',
   'af_ZA',
